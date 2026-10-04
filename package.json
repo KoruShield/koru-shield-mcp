@@ -1,6 +1,6 @@
 {
-  "name": "@korushield/mcp-server",
-  "version": "1.0.0",
+  "name": "korushield-mcp-server",
+  "version": "1.0.1",
   "description": "MCP server for Koru Shield DNS filtering: manage profiles, rules, filter categories, schedules, and query logs through AI assistants.",
   "mcpName": "com.korushield/koru-shield",
   "type": "module",
@@ -32,7 +32,7 @@
   "homepage": "https://korushield.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/summitsingh/koru-shield-mcp.git"
+    "url": "git+https://github.com/KoruShield/koru-shield-mcp.git"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.0",
