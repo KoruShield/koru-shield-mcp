@@ -1,0 +1,39 @@
+{
+  "name": "@korushield/mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Koru Shield DNS filtering: manage profiles, rules, filter categories, schedules, and query logs through AI assistants.",
+  "mcpName": "com.korushield/koru-shield",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "koru-shield-mcp": "dist/index.js"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:http": "MCP_TRANSPORT=http node dist/index.js",
+    "inspector": "npx @modelcontextprotocol/inspector node dist/index.js"
+  },
+  "keywords": ["mcp", "model-context-protocol", "dns", "filtering", "parental-controls", "koru-shield"],
+  "author": "Koru Shield",
+  "license": "MIT",
+  "homepage": "https://korushield.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/summitsingh/koru-shield-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "express": "^5.1.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
