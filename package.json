@@ -8,14 +8,25 @@
   "bin": {
     "koru-shield-mcp": "dist/index.js"
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "start:http": "MCP_TRANSPORT=http node dist/index.js",
     "inspector": "npx @modelcontextprotocol/inspector node dist/index.js"
   },
-  "keywords": ["mcp", "model-context-protocol", "dns", "filtering", "parental-controls", "koru-shield"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "dns",
+    "filtering",
+    "parental-controls",
+    "koru-shield"
+  ],
   "author": "Koru Shield",
   "license": "MIT",
   "homepage": "https://korushield.com",
@@ -25,13 +36,13 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.0",
-    "express": "^5.1.0",
-    "zod": "^3.25.0"
+    "express": "^5.2.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
-    "@types/node": "^22.0.0",
-    "typescript": "^5.0.0"
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
   },
   "engines": {
     "node": ">=18"
