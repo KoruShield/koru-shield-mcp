@@ -38,7 +38,7 @@ Sign in at https://my.korushield.com, go to API keys, and create one. Copy the k
 No install needed. Run directly with npx:
 
 ```bash
-npx -y @korushield/mcp-server
+npx -y korushield-mcp-server
 ```
 
 Set your key as an environment variable:
@@ -54,7 +54,7 @@ Optional: `KORU_SHIELD_API_URL` overrides the API base URL (default `https://my.
 **Claude Code**
 
 ```bash
-claude mcp add koru-shield -- npx -y @korushield/mcp-server
+claude mcp add koru-shield -- npx -y korushield-mcp-server
 ```
 
 (Claude Code passes environment through, so export `KORU_SHIELD_API_KEY` first. Or use the HTTP transport below with a header.)
@@ -68,7 +68,7 @@ Add to your MCP config (`~/.cursor/mcp.json` or VS Code `mcp.json`):
   "mcpServers": {
     "koru-shield": {
       "command": "npx",
-      "args": ["-y", "@korushield/mcp-server"],
+      "args": ["-y", "korushield-mcp-server"],
       "env": {
         "KORU_SHIELD_API_KEY": "your-key-here"
       }
@@ -86,7 +86,7 @@ Add to `claude_desktop_config.json`:
   "mcpServers": {
     "koru-shield": {
       "command": "npx",
-      "args": ["-y", "@korushield/mcp-server"],
+      "args": ["-y", "korushield-mcp-server"],
       "env": {
         "KORU_SHIELD_API_KEY": "your-key-here"
       }
@@ -100,7 +100,7 @@ Add to `claude_desktop_config.json`:
 For clients that connect over HTTP (agents, hosted setups):
 
 ```bash
-MCP_TRANSPORT=http PORT=3000 KORU_SHIELD_API_KEY="your-key-here" npx -y @korushield/mcp-server
+MCP_TRANSPORT=http PORT=3000 KORU_SHIELD_API_KEY="your-key-here" npx -y korushield-mcp-server
 ```
 
 Or pass the key per-request instead of the env var:
