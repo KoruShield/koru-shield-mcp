@@ -6,12 +6,12 @@
     "url": "https://github.com/KoruShield/koru-shield-mcp",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "@korushield/mcp-server",
-      "version": "1.0.0",
+      "identifier": "korushield-mcp-server",
+      "version": "1.0.1",
       "transport": {
         "type": "stdio"
       },
