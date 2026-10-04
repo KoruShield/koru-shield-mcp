@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.korushield/koru-shield",
+  "description": "Manage Koru Shield DNS filtering: profiles, rules, categories, schedules, and logs.",
+  "repository": {
+    "url": "https://github.com/KoruShield/koru-shield-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@korushield/mcp-server",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Your Koru Shield API key (create one in the dashboard at https://my.korushield.com under Settings > API Keys)",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "KORU_SHIELD_API_KEY"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.korushield.com/mcp"
+    }
+  ]
+}
