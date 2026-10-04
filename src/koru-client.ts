@@ -4,6 +4,8 @@
  * Base URL configurable via KORU_SHIELD_API_URL, defaults to production.
  */
 
+import { randomUUID } from "node:crypto";
+
 const DEFAULT_BASE_URL = "https://my.korushield.com/api";
 
 export interface KoruClientOptions {
@@ -13,11 +15,11 @@ export interface KoruClientOptions {
 
 export class KoruApiError extends Error {
   status: number;
-  body: string;
-  constructor(status: number, body: string) {
-    super(`Koru Shield API error ${status}: ${body.slice(0, 300)}`);
+  correlationId: string;
+  constructor(status: number, correlationId: string) {
+    super(`Koru Shield API error ${status} (ref ${correlationId})`);
     this.status = status;
-    this.body = body;
+    this.correlationId = correlationId;
   }
 }
 
@@ -46,9 +48,15 @@ export class KoruClient {
         "User-Agent": "koru-shield-mcp/1.0",
       },
       body: body !== undefined ? JSON.stringify(body) : undefined,
+      signal: AbortSignal.timeout(30000),
     });
     const text = await res.text();
-    if (!res.ok) throw new KoruApiError(res.status, text);
+    if (!res.ok) {
+      const correlationId = randomUUID();
+      const bodySnippet = text.slice(0, 200).replace(/\s+/g, " ").replace(/\b((?:api[_-]?)?key\s*[:=]\s*)["']?[^&\s,"'}]*/gi, "$1[redacted]").slice(0, 200);
+      console.error(JSON.stringify({ correlationId, method, path, status: res.status, bodyLength: text.length, bodySnippet }));
+      throw new KoruApiError(res.status, correlationId);
+    }
     if (!text) return undefined as T;
     try {
       const parsed = JSON.parse(text);
